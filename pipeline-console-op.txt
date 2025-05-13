@@ -1,0 +1,97 @@
+Started by user ajinkya
+Obtained Jenkinsfile from git https://github.com/AjinkyaP-09/simple-node-app.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/nodeapp-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential ff24e1da-ae82-4f91-9811-e4ae29afba01
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/nodeapp-pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/AjinkyaP-09/simple-node-app.git # timeout=10
+Fetching upstream changes from https://github.com/AjinkyaP-09/simple-node-app.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/AjinkyaP-09/simple-node-app.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f5d335cb13b56ec4f70ab138fa8f5df2282a71e1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f5d335cb13b56ec4f70ab138fa8f5df2282a71e1 # timeout=10
+Commit message: "Update Jenkinsfile"
+ > git rev-list --no-walk 804f56d6d04cc578383a93aa7661d586a2070fbe # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/nodeapp-pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/AjinkyaP-09/simple-node-app.git # timeout=10
+Fetching upstream changes from https://github.com/AjinkyaP-09/simple-node-app.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/AjinkyaP-09/simple-node-app.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f5d335cb13b56ec4f70ab138fa8f5df2282a71e1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f5d335cb13b56ec4f70ab138fa8f5df2282a71e1 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b main f5d335cb13b56ec4f70ab138fa8f5df2282a71e1 # timeout=10
+Commit message: "Update Jenkinsfile"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install Dependencies)
+[Pipeline] sh
++ npm install
+npm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+added 266 packages, and audited 267 packages in 14s
+
+32 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Tests)
+[Pipeline] sh
++ npm test
+
+> sample-node-app@1.0.0 test
+> jest
+
+PASS test/app.test.js
+  ✓ adds 1 + 2 to equal 3 (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.823 s
+Ran all test suites.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Build complete!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
