@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/AjinkyaP-09/simple-node-app.git'
+         git branch: 'main', url:  'https://github.com/AjinkyaP-09/simple-node-app.git'
       }
     }
 
